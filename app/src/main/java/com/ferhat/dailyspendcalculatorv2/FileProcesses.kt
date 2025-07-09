@@ -5,7 +5,9 @@ import android.content.Context
 import android.net.Uri
 
 object FileProcesses {
-    fun readCsv(context: Context, uri: Uri): List<List<String>> {
+    fun readCsv(context: Context, uri: Uri?): List<List<String>> {
+        if (uri == null)
+            return emptyList()
         val res = mutableListOf<List<String>>()
         context.contentResolver.openInputStream(uri)?.use {
             inputStream ->
