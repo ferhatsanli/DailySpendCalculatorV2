@@ -15,7 +15,7 @@ object FileProcesses {
                     lines ->
                         lines.forEach {
                             line ->
-                                val columns = line.split(",")
+                                val columns = line.split(";")
                                 res.add(columns)
                         }
                 }
