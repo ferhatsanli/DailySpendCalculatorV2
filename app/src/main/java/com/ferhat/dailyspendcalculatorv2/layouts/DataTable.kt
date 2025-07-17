@@ -54,11 +54,15 @@ fun DataTable(inputData: List<List<String>>,
 }
 @Composable
 fun ColumnNameCell(name: String, modifier: Modifier){
-    Text(name.removeSurrounding("\""),
+    val n = name.removeSurrounding("\"")
+    Text(n,
         modifier
-        .border(2.dp, MaterialTheme.colorScheme.onSecondaryContainer)
-        .background(MaterialTheme.colorScheme.secondary )
-        .padding(4.dp),
+            .border(2.dp, MaterialTheme.colorScheme.onSecondaryContainer)
+            .background(MaterialTheme.colorScheme.secondary )
+            .padding(4.dp)
+            .clickable{
+                ToastUtils.showMessage(n)
+            },
         maxLines = 1,
         overflow = TextOverflow.Ellipsis
     )
@@ -74,14 +78,15 @@ fun ColumnNameCellPreview(){
 
 @Composable
 fun DataCell(value: String, modifier: Modifier) {
+    val v = value.removeSurrounding("\"")
     Text(
-        value.removeSurrounding("\""),
+        v,
         modifier
             .border(1.dp, MaterialTheme.colorScheme.onPrimaryContainer)
             .background(MaterialTheme.colorScheme.primary)
             .padding(2.dp)
             .clickable {
-                ToastUtils.showMessage(value)
+                ToastUtils.showMessage(v)
             },
         maxLines = 1,
         overflow = TextOverflow.Ellipsis

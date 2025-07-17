@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ToastUtils.init(this)
+        ToastUtils.init(applicationContext)
         enableEdgeToEdge()
         Log.i("FERHAT", "onCreate: started, INTENT: ${intent.type?.toString()}")
         // Reading CSV file from the bank app
